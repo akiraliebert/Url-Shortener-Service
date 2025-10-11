@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdm.toml
+*.pdm.lock
+*.envrc
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+ENV/
+venv.bak/
+
+# VSCode / PyCharm
+.idea/
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & cache
+*.log
+logs/
+.cache/
+pytest_cache/
+
+# Coverage & testing
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.pytest_cache/
+
+# Alembic (migrations)
+# сохраняем саму структуру alembic, но не кэш и компилированное
+alembic/versions/__pycache__/
+alembic/__pycache__/
+
+# Docker
+*.pid
+*.tar
+*.bak
+*.swp
+.dockerignore
+
+# Byte-compiled
+*.so
+
+# Local dev data
+instance/
+uploads/
+media/
+staticfiles/
+
+# Redis dump (если вдруг появится)
+dump.rdb
+
+# Database files (если используешь SQLite для тестов)
+*.db
+*.sqlite3
+
+# Environment variables
+.env
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# FastAPI specific temporary
+app/__pycache__/
