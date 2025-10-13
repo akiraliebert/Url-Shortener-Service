@@ -12,6 +12,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'app'))
 from app.core.config import settings  # <- твой Pydantic Settings
 from app.core.database import Base  # <- база моделей (для autogenerate)
 from app.models import url
+from app.models import admin
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

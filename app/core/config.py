@@ -4,14 +4,20 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "URL Shortener Service"
     VERSION: str = "1.0.0"
     DEBUG: bool = False
-
+    # POSTGRESQL
     POSTGRES_DB: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_HOST: str = "localhost"
     POSTGRES_PORT: int = 5432
+    # PGADMIN
     PGADMIN_DEFAULT_EMAIL: str
     PGADMIN_DEFAULT_PASSWORD: str
+    # JWT
+    SECRET_KEY: str
+    ALGORITHM: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int
+
 
     @property
     def DATABASE_URL(self) -> str:
