@@ -8,3 +8,6 @@ psycopg2-binary
 python-jose[cryptography]
 bcrypt==4.3.0
 passlib[bcrypt]
+pytest
+pytest-asyncio
+httpx
