@@ -50,20 +50,24 @@ async def generate_short_code(id_: int, existing_codes: set) -> str:
 
     return short_code
 
-async def get_original_url_and_increment_clicks(db: AsyncSession, short_code: str) -> str | None:
+async def increment_click_db(db: AsyncSession, short_code: str):
+    stmt = (
+        update(URL)
+        .where(URL.short_code == short_code)
+        .values(
+            clicks=URL.clicks + 1,
+            last_accessed=func.now()
+        )
+    )
+    await db.execute(stmt)
+    await db.commit()
+
+async def get_original_url(db: AsyncSession, short_code: str) -> str | None:
     result = await db.execute(select(URL).where(URL.short_code == short_code))
     url_obj = result.scalar_one_or_none()
 
     if not url_obj:
         return None
-
-    # Обновляем счётчик и время последнего доступа
-    await db.execute(
-        update(URL)
-        .where(URL.id == url_obj.id)
-        .values(clicks=URL.clicks + 1, last_accessed=func.now())
-    )
-    await db.commit()
 
     return url_obj.original_url
 

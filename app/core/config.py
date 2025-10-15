@@ -17,6 +17,9 @@ class Settings(BaseSettings):
     SECRET_KEY: str
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
+    # REDIS
+    REDIS_URL: str
+    REDIS_TTL: str
 
 
     @property

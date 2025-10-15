@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.core.logger import get_logger
 from app.core.config import settings
+from app.core.redis_client import init_redis
 from app.api.routes.urls import router as url_router
 from app.api.routes.auth import router as auth_router
 
@@ -17,6 +18,7 @@ def create_app() -> FastAPI:
 
 
     async def startup_event():
+        await init_redis(app=app, redis_url=settings.REDIS_URL)
         logger.info("Starting FastAPI application")
 
     async def shutdown_event():
